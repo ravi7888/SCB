@@ -1,0 +1,36 @@
+{
+  "AlertDefinition" : {
+    "cluster_name" : "vinod",
+    "component_name" : "HIVE_SERVER",
+    "description" : "This host-level alert is triggered if the HiveServer2 have many connections Established",
+    "enabled" : true,
+    "ignore_host" : false,
+    "interval" : 1,
+    "label" : "HiveServer2 Established Connection",
+    "name" : "hive_server_established_connection",
+    "scope" : "ANY",
+    "service_name" : "HIVE",
+    "source" : {
+      "path" : "HIVE/0.12.0.2.0/package/alerts/alert_hiveserver_num_connection.py",
+      "type" : "SCRIPT",
+      "parameters" : [
+        {
+          "name" : "check.critical.value",
+          "description" : "The CRITICAL Alert Value for Total Number of Established Connections",
+          "threshold" : "CRITICAL",
+          "display_name" : "CRITICAL NUMBER OF CONNECTIONS",
+          "type": "NUMERIC",
+          "value" : "50"
+        },
+        {
+          "name" : "check.warning.value",
+          "description" : "The WARNING Alert Value for Total Number of Established Connections",
+          "threshold" : "WARNING",
+          "display_name" : "WARNING NUMBER OF CONNECTIONS",
+          "type": "NUMERIC",
+          "value" : "30"
+        }
+      ]
+    }
+  }
+}
